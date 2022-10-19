@@ -12,7 +12,7 @@ export default defineConfig([
     {
         input,
         plugins,
-        external: ['fatcher'],
+        external: ['fatcher', '@fatcherjs/utils-shared'],
         output: [
             {
                 format: 'cjs',
@@ -22,16 +22,21 @@ export default defineConfig([
                 format: 'module',
                 file: module,
             },
-            {
-                plugins: [minify({ target })],
-                format: 'umd',
-                file: browser,
-                name: 'FatcherMiddlewareFormData',
-                globals: {
-                    fatcher: 'Fatcher',
-                },
-            },
         ],
+    },
+    {
+        input,
+        plugins,
+        external: ['fatcher'],
+        output: {
+            plugins: [minify({ target })],
+            format: 'umd',
+            file: browser,
+            name: 'FatcherMiddlewareFormData',
+            globals: {
+                fatcher: 'Fatcher',
+            },
+        },
     },
     {
         input,
