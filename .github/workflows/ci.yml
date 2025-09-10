@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: 'pnpm'
-          node-version: 18
+          node-version: 20
 
       - run: pnpm install
 
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: 'pnpm'
-          node-version: 18
+          node-version: 20
 
       - run: pnpm install
 
@@ -56,11 +56,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: 'pnpm'
-          node-version: 18
+          node-version: 20
 
       - run: pnpm install
-
-      - run: pnpm build
 
       - run: pnpm run test:cov
 
