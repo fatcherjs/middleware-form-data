@@ -62,8 +62,9 @@ jobs:
 
       - run: pnpm run test:cov
 
-      - uses: codecov/codecov-action@v2
-        if: ${{github.event == 'push'}}
+      - uses: codecov/codecov-action@v5
+        if: ${{github.event_name == 'push'}}
         with:
           fail_ci_if_error: false
+          token: ${{secrets.CODECOV_TOKEN}}
           verbose: true
