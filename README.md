@@ -21,6 +21,10 @@
   </a>
 </div>
 
+<br />
+
+> This middleware is Browser Only.
+
 ## Install
 
 ### NPM
@@ -32,7 +36,18 @@
 ### CDN
 
 ```html
+<script src="https://cdn.jsdelivr.net/npm/fatcher/dist/fatcher.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fatcherjs/middleware-form-data/dist/index.min.js"></script>
+
+<script>
+  Fatcher.fatcher('url', {
+    middlewares: [FatcherMiddlewareFormData],
+    body: document.querySelector('#login-form'), // HTMLFormElement
+    method: 'POST',
+  }).then(response => {
+    console.log(response);
+  });
+</script>
 ```
 
 ## Usage
@@ -43,10 +58,8 @@ import { formData } from '@fatcherjs/middleware-form-data';
 
 fatcher('https://foo.bar', {
   middlewares: [formData],
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
   method: 'POST',
+  // Body Supports HTMLFormElement / Object / FormData
   body: {
     foo: 'bar',
     test: 'a',

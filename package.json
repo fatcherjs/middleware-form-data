@@ -1,6 +1,6 @@
 {
   "name": "@fatcherjs/middleware-form-data",
-  "version": "3.0.0-alpha-11",
+  "version": "3.0.0",
   "homepage": "https://github.com/fatcherjs/middleware-form-data",
   "repository": {
     "type": "git",
