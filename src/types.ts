@@ -3,7 +3,7 @@ import 'fatcher';
 
 declare module 'fatcher' {
   interface FatcherOptions {
-    body?: Record<string, any> | BodyInit | null;
+    body?: Record<string, any> | BodyInit | null | HTMLFormElement;
   }
 }
 

@@ -1,4 +1,4 @@
-import { isBrowser, isPlainObject } from '@fatcherjs/utils-shared';
+import { isPlainObject } from 'es-toolkit';
 import { FatcherMiddleware } from 'fatcher';
 
 export const formData: FatcherMiddleware = {
@@ -10,18 +10,22 @@ export const formData: FatcherMiddleware = {
       return next();
     }
 
-    if (context.request.headers.get('content-type')?.includes('multipart/form-data')) {
-      if (isBrowser()) {
-        context.request.headers.delete('content-type');
-      }
+    if (body instanceof HTMLFormElement) {
+      context.request.headers.delete('content-type');
+
+      return next({
+        request: new Request(context.request, { body: new FormData(body) }),
+      });
     }
 
     if (body instanceof FormData) {
+      context.request.headers.delete('content-type');
       return next();
     }
 
     if (isPlainObject(body)) {
       const form = new FormData();
+      context.request.headers.delete('content-type');
 
       for (const [key, value] of Object.entries(body)) {
         if (Array.isArray(value)) {

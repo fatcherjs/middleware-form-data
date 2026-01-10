@@ -24,7 +24,7 @@
     "fatcher": "^3.0.0"
   },
   "dependencies": {
-    "@fatcherjs/utils-shared": "^3.0.0-alpha-11"
+    "es-toolkit": "^1.43.0"
   },
   "devDependencies": {
     "@fansy/eslint-config": "^1.4.2",
@@ -37,6 +37,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "fatcher": "^3.0.0",
     "husky": "^9.1.7",
+    "jsdom": "^27.4.0",
     "lint-staged": "^16.1.6",
     "msw": "^2.11.1",
     "prettier": "^3.3.3",
